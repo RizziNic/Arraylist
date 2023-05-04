@@ -9,18 +9,10 @@ public class Main {
         ArrayList<String> parole = new ArrayList<>();
 
         try{
-            //BufferedReader i = new BufferedReader(new FileReader("Lettore.txt"));
-            //BufferedWriter o = new BufferedWriter(new FileWriter("Scrittore.txt"));
-
-            //FileReader i = new FileReader("Listaparole.txt");
-            //FileWriter o = new FileWriter("scrivi.txt");
-
             FileReader f =new FileReader("Listaparole.txt");
             BufferedReader b = new BufferedReader(f);
 
-            FileWriter fout = new FileWriter("scrittore.txt");
-            BufferedWriter bout = new BufferedWriter(fout);
-            //int i = 0;
+            FileWriter fout = new FileWriter("output.txt");
 
             while(true) {
                 s = b.readLine();
@@ -33,9 +25,11 @@ public class Main {
             Collections.sort(parole);
             System.out.println(parole);
 
-            while (true){
-
+            for (String i : parole) {
+                fout.write(i + "\n");
             }
+            fout.close();
+
 
         }catch(Exception e){
 
